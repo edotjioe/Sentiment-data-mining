@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "#install.packages(\"tidytext\")\n\nlibrary(\"dplyr\")\nlibrary(\"tidytext\")\n\n\n# Read tsv files\nlabeled <- read.delim(\"data/labeledTrainData.tsv\", sep = \"\\t\", stringsAsFactors = FALSE)\nunlabeled <- read.delim(\"data/unlabeledTrainData.tsv\", sep = \"\\t\", stringsAsFactors = FALSE)\ntest <- read.delim(\"data/testData.tsv\", sep = \"\\t\", stringsAsFactors = FALSE)",
+    "created" : 1512468472078.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2775918582",
+    "id" : "2290E619",
+    "lastKnownWriteTime" : 1512468697,
+    "last_content_update" : 1512468697386,
+    "path" : "~/Projects/R/Data mining/Data mining/import.R",
+    "project_path" : "import.R",
+    "properties" : {
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "library(janeaustenr)\nlibrary(dplyr)\nlibrary(stringr)\nlibrary(tidytext)\nlibrary(tidyr)\nlibrary(ggplot2)\n\noriginal_books <- labeled %>%\n  group_by(book) %>%\n  mutate(linenumber = row_number(),\n         chapter = cumsum(str_detect(text, regex(\"^chapter [\\\\divxlc]\",\n                                                 ignore_case = TRUE)))) %>%\n  ungroup()\n\noriginal_books\n\n\ntidy_books <- labeled %>%\n  unnest_tokens(word, review)\n\ntidy_books\n\ndata(\"stop_words\")\ncleaned_books <- tidy_books %>%\n  anti_join(stop_words)\n\ncleaned_books %>%\n  count(word, sort = TRUE) \n\nnrcjoy <- get_sentiments(\"nrc\") %>%\n  filter(sentiment == \"joy\")\n\ntidy_books %>%\n  filter(book == \"Emma\") %>%\n  semi_join(nrcjoy) %>%\n  count(word, sort = TRUE)\n\nbing <- get_sentiments(\"bing\")\n\njaneaustensentiment <- tidy_books %>%\n  inner_join(bing) %>%\n  count(book, index = linenumber %/% 80, sentiment) %>%\n  spread(sentiment, n, fill = 0) %>%\n  mutate(sentiment = positive - negative)\n\nggplot(janeaustensentiment, aes(index, sentiment, fill = book)) +\n  geom_bar(stat = \"identity\", show.legend = FALSE) +\n  facet_wrap(~book, ncol = 2, scales = \"free_x\")",
+    "created" : 1512478498752.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2235339890",
+    "id" : "37295F7F",
+    "lastKnownWriteTime" : 1512480764,
+    "last_content_update" : 1512480764079,
+    "path" : "~/Projects/R/Data mining/Data mining/test.R",
+    "project_path" : "test.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 7,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

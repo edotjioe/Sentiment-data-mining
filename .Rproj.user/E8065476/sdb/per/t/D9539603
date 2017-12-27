@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "check_sentiment <- function(df) {\n  review <- df %>%\n    unnest_tokens(word, review)\n  \n  data(\"stop_words\")\n  review_cleaned <- review %>%\n    anti_join(stop_words)\n  \n  review_result <- review_cleaned %>%\n    inner_join(get_sentiments(\"bing\"))\n  \n  x <- as.data.frame(table(review_result$sentiment))\n  \n  if(as.character(x$Var1[1]) == \"positive\")\n    return(1)\n  else\n    return(0)\n}\n\n\nfor(x in labeled) {\n  check_sentiment(x[c(1, 3)])\n}\n\ncheck_sentiment(labeled[350, c(1, 3)])\n\n\nreview <- labeled[1, c(1, 3)] %>%\n  unnest_tokens(word, review)\n\ndata(\"stop_words\")\nreview_cleaned <- review %>%\n  anti_join(stop_words)\n\nreview_result <- review_cleaned %>%\n  inner_join(get_sentiments(\"bing\"))\n\nx <- as.data.frame(table(review_result$sentiment))\n\nas.character(x$Var1[2])\n\nif(as.character(x$Var1[1]) == \"positive\"){\n  return(1)\n} else {\n  return(0)\n}\n  ",
+    "created" : 1512468688342.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1193862596",
+    "id" : "D9539603",
+    "lastKnownWriteTime" : 1512480756,
+    "last_content_update" : 1512480756913,
+    "path" : "~/Projects/R/Gemeente_Amsterdam_Groep_3/Datacleaning Gemeente Amsterdam/main.R",
+    "project_path" : null,
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

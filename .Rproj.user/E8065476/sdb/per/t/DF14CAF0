@@ -1,0 +1,29 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1512480128910.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "DF14CAF0",
+    "lastKnownWriteTime" : 8389754659302220320,
+    "last_content_update" : 1512480128910,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "A70FF8E5",
+        "caption" : "review_result",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=review_result&cache_key=A70FF8E5",
+        "displayedObservations" : "33",
+        "environment" : "",
+        "object" : "review_result",
+        "preview" : "0",
+        "totalObservations" : "33",
+        "variables" : "3"
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}
