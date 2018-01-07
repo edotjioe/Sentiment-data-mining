@@ -54,7 +54,7 @@ table(my_features_own_review$sentiment, pred_svm)
 
 sensitivity(table(my_features_own_review$sentiment, pred_svm))
 
-m_nbayes <- naiveBayes(form, data=my_features, laplace=1000, threshold=.5)
-pred_nbayes <- predict(m_nbayes, my_features_polarity, threshold=.5, laplace=1000)
-table(my_features_polarity$sentiment, pred_nbayes)
-sensitivity(table(my_features_polarity$sentiment, pred_nbayes))
+# m_nbayes <- naiveBayes(form, data=my_features, laplace=1000, threshold=.5)
+# pred_nbayes <- predict(m_nbayes, my_features_polarity, threshold=.5, laplace=1000)
+# table(my_features_polarity$sentiment, pred_nbayes)
+# sensitivity(table(my_features_polarity$sentiment, pred_nbayes))
