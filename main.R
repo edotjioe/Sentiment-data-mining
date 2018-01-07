@@ -18,7 +18,7 @@ m_svm <- svm(form, data=my_features, type="C")
 # Prepare the first dataset
 my_features_imdb <- get_feature_vectors(tokens_imdb, corpus = corpus)
 
-my_features_imdb <- add_targets(my_features_imdb, imbd_review[2000:3000,])
+my_features_imdb <- add_targets(my_features_imdb, imdb_review[2000:3000,])
 my_features_imdb$sentiment <- as.factor(my_features_imdb$sentiment)
 # Predict the sentiment of the reviews from first dataset
 pred_svm <- predict(m_svm, my_features_imdb)
@@ -53,3 +53,8 @@ own_review$sentiment
 table(my_features_own_review$sentiment, pred_svm)
 
 sensitivity(table(my_features_own_review$sentiment, pred_svm))
+
+m_nbayes <- naiveBayes(form, data=my_features, laplace=1000, threshold=.5)
+pred_nbayes <- predict(m_nbayes, my_features_polarity, threshold=.5, laplace=1000)
+table(my_features_polarity$sentiment, pred_nbayes)
+sensitivity(table(my_features_polarity$sentiment, pred_nbayes))

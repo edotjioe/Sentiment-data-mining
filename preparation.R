@@ -6,10 +6,10 @@ library("readtext")
 
 # First data set
 # Read tsv files
-imbd_review <- read.delim("data/labeledTrainData.tsv", sep = "\t", stringsAsFactors = FALSE)
+imdb_review <- read.delim("data/labeledTrainData.tsv", sep = "\t", stringsAsFactors = FALSE)
 
 # Fill the train dataset with 1000 observations from imdb dataset
-train <- imbd_review[1:2000, c(2,3)]
+train <- imdb_review[1:2000, c(2,3)]
 
 #Second dataset
 # Reading all of the positive reviews from multiple files
@@ -51,7 +51,7 @@ own_review <- read.delim("own_reviews.txt", sep = "\t", stringsAsFactors = FALSE
 
 # Create tokenized versions of the datasets
 tokens <- tokenize(train[,2])
-tokens_imdb <- tokenize(imbd_review[2000:3000, 3])
+tokens_imdb <- tokenize(imdb_review[2000:3000, 3])
 tokens_polarity <- tokenize(polarity_review[1000:2000,3])
 tokens_own_review <- tokenize(own_review[,3])
 
