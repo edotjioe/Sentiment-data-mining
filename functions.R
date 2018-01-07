@@ -164,5 +164,6 @@ add_targets <- function(feature_matrix, df){
 #Calculates accuracy, true negative, true positive, and positive predictive value of a confusion matrix.
 sensitivity <- function(confusion_matrix){
   acc <- (confusion_matrix[1]+confusion_matrix[4])/sum(confusion_matrix)
-  return(list(accuracy=acc))
+  pre <- confusion_matrix[4]/(confusion_matrix[4]+confusion_matrix[3])
+  return(list(accuracy=acc, precision=pre))
 }
